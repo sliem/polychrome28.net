@@ -36,7 +36,6 @@ def square_image(src_image):
     new = Image.new(src_image.mode, size=(newsize, newsize))
 
     if width > height:
-        print(0, int((newsize - height) / 2))
         new.paste(src_image, box=(0, int((newsize - height) / 2)))
 
     if width < height:
