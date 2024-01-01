@@ -22,7 +22,7 @@ def main():
             src_image = square_image(src_image)
 
         src_image.resize(size=(800, 800)).save(dst_dir / fname, format=format)
-        src_image.thumbnail((200, 200))
+        src_image.thumbnail((375, 375))
         src_image.save(dst_dir / f"{fname}.thumbnail", format=format)
         fnames.append(fname)
 
