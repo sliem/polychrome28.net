@@ -12,7 +12,7 @@ dst_dir = pathlib.Path("img")
 def main():
     format = "jpeg"
 
-    fnames = []
+    fnames = dict()
     for p in src_dir.glob("*"):
         src_image = Image.open(p)
         exif_datetime = src_image.getexif()[ExifTags.Base.DateTime]
@@ -24,11 +24,18 @@ def main():
         src_image.resize(size=(800, 800)).save(dst_dir / fname, format=format)
         src_image.thumbnail((375, 375))
         src_image.save(dst_dir / f"{fname}.thumbnail", format=format)
-        fnames.append(fname)
 
-    grid = Grid(ncols=4, data=sorted(fnames, reverse=True))
-    print(grid.html(id="gallery-2023"))
+        year = exif_datetime.split(":")[0]
+        try:
+            fnames[year].append(fname)
+        except KeyError:
+            fnames[year] = [fname]
 
+    for year in sorted(fnames.keys(), reverse=True):
+        grid = Grid(ncols=4, data=sorted(fnames[year], reverse=True))
+        print(f"<h2>painted &ndash; {year}</h2>")
+        print(grid.html(id=f"gallery-{year}"))
+ 
 
 def square_image(src_image):
     width, height = src_image.size
