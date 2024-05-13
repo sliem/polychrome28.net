@@ -16,7 +16,7 @@ def main():
     for p in src_dir.glob("*"):
         src_image = Image.open(p)
         exif_datetime = src_image.getexif()[ExifTags.Base.DateTime]
-        fname = f"{exif_datetime.split(' ')[0].replace(':', '')}.{format}"
+        fname = f"{exif_datetime.replace(' ', 'T').replace(':', '')}.{format}"
 
         if src_image.size[0] != src_image.size[1]:
             src_image = square_image(src_image)
