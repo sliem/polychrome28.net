@@ -5,7 +5,7 @@ from pillow_heif import register_heif_opener
 
 register_heif_opener()
 
-src_dir = pathlib.Path("/mnt/c/Users/sebas/Dropbox/finished_miniatures")
+src_dir = pathlib.Path("/Users/sliem/Dropbox/painted")
 dst_dir = pathlib.Path("img")
 
 
