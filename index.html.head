@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+
+<head>
+    <title>polychrome28</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            max-width: 850px;
+            background-color: #1c1c1c;
+            color: #fefefe;
+            margin: auto;
+            padding: 30px 10px;
+            font-size: 16pt;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        ul {
+            list-style-type: square;
+        }
+
+        li {
+            padding: 0 0 0.2em 0;
+        }
+
+        dl {
+            font-size: 18pt;
+        }
+
+        dt {
+            float: left;
+            clear: left;
+            width: 110px;
+            text-align: right;
+            font-style: italic;
+        }
+
+        dd {
+            margin: 0 0 0 117px;
+            padding: 0 0 0.2em 0;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .column {
+            flex: 25%;
+            max-width: 25%;
+        }
+
+        .column img {
+            vertical-align: middle;
+            width: 100%;
+        }
+
+        @media screen and (max-width: 600px) {
+            .column {
+                -ms-flex: 50%;
+                flex: 50%;
+                max-width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 375px) {
+            .column {
+                -ms-flex: 100%;
+                flex: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <dl>
+        <dt>polychrome</dt>
+        <dd>is the "practice of decorating architectural elements, sculpture, etc., in a variety of colors."</dd>
+        <dt>28</dt>
+        <dd>mm is a common scale for wargaming miniatures</dd>
+    </dl>
+    <p>I go by the handle polychrome28 on the usual socials such as instagram, discord, et
+        cetera. On this site, however, I collect the treasures of my miniature wargaming (mis)adventures &ndash;
+        photos of finished miniatures and other
+        things I find neat.</p>

@@ -14,6 +14,8 @@ def main():
 
     fnames = dict()
     for p in src_dir.glob("*"):
+        if p.name == ".DS_Store":
+            continue
         src_image = Image.open(p)
         exif_datetime = src_image.getexif()[ExifTags.Base.DateTime]
         fname = f"{exif_datetime.replace(' ', 'T').replace(':', '')}.{format}"
@@ -31,11 +33,21 @@ def main():
         except KeyError:
             fnames[year] = [fname]
 
+
+    gallery = list()
     for year in sorted(fnames.keys(), reverse=True):
         grid = Grid(ncols=4, data=sorted(fnames[year], reverse=True))
-        print(f"<h2>painted &ndash; {year}</h2>")
-        print(grid.html(id=f"gallery-{year}"))
- 
+        gallery.append(f"<h2>painted &ndash; {year}</h2>")
+        gallery.append(grid.html(id=f"gallery-{year}"))
+
+    with open("index.html", "w") as indexfile:
+        with open("index.html.head", "r") as headfile:
+            indexfile.writelines(headfile.readlines())
+
+        indexfile.writelines(gallery)
+
+        with open("index.html.foot", "r") as footfile:
+            indexfile.writelines(footfile.readlines())
 
 def square_image(src_image):
     width, height = src_image.size
