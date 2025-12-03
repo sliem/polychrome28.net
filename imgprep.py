@@ -33,7 +33,6 @@ def main():
         except KeyError:
             fnames[year] = [fname]
 
-
     gallery = list()
     for year in sorted(fnames.keys(), reverse=True):
         grid = Grid(ncols=4, data=sorted(fnames[year], reverse=True))
@@ -48,6 +47,7 @@ def main():
 
         with open("index.html.foot", "r") as footfile:
             indexfile.writelines(footfile.readlines())
+
 
 def square_image(src_image):
     width, height = src_image.size
